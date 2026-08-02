@@ -5,4 +5,5 @@ install_job:
   stage: install
   image: node:22-alpine
   script:
+    - cd end_to_end_devsecops_project
     - npm install
