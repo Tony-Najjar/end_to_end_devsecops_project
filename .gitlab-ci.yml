@@ -1,5 +1,7 @@
 stages:
   - install
+  - security
+
 
 install_job:
   stage: install
@@ -7,3 +9,15 @@ install_job:
   script:
     - cd end_to_end_devsecops_project
     - npm install
+
+
+sonarqube_check:
+  stage: security
+  image:
+    name: sonarsource/sonar-scanner-cli:latest
+    entrypoint: [""]
+  script:
+    - sonar-scanner
+  variables:
+    SONAR_TOKEN: $SONAR_TOKEN
+ 
