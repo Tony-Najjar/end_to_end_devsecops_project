@@ -21,4 +21,4 @@ sonarqube_check:
   script:
     - sonar-scanner
   variables:
-    SONAR_TOKEN: $SONAR_TOKEN
+    SONAR_TOKEN: $SONAR_TOKEN# SonarQube pipeline test
