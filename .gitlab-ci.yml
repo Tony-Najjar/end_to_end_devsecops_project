@@ -2,17 +2,19 @@ stages:
   - install
   - security
 
-
 install_job:
   stage: install
+  tags:
+    - sobarqube
   image: node:22-alpine
   script:
     - cd end_to_end_devsecops_project
     - npm install
 
-
 sonarqube_check:
   stage: security
+  tags:
+    - sobarqube
   image:
     name: sonarsource/sonar-scanner-cli:latest
     entrypoint: [""]
@@ -20,4 +22,3 @@ sonarqube_check:
     - sonar-scanner
   variables:
     SONAR_TOKEN: $SONAR_TOKEN
- 
