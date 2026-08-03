@@ -19,6 +19,7 @@ sonarqube_check:
     name: sonarsource/sonar-scanner-cli:latest
     entrypoint: [""]
   script:
-    - sonar-scanner
+    
+  - sonar-scanner -Dsonar.token=$SONAR_TOKEN
   variables:
     SONAR_TOKEN: $SONAR_TOKEN
