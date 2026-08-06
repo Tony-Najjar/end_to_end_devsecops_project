@@ -1,15 +1,15 @@
 stages:
-  - install
+  - test
   - security
 
-install_job:
-  stage: install
+unit_test:
+  stage: test
   tags:
     - sobarqube
-  image: node:22-alpine
+  image: node:20-alpine
   script:
     - cd end_to_end_devsecops_project
-    - npm install
+    - npm test
 
 sonarqube_check:
   stage: security
