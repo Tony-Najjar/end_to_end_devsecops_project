@@ -4,7 +4,7 @@ stages:
   - build
 
 variables:
-  IMAGE_NAME: "$DOCKERHUB_USERNAME/end-to-end-devsecops-project:$CI_PIPELINE_IID"
+  IMAGE_NAME: "$dockerhub_username/end-to-end-devsecops-project:$CI_PIPELINE_IID"
 
 unit_test:
   stage: test
@@ -33,7 +33,7 @@ build_and_push_image:
     - docker:26-dind
 
   before_script:
-    - echo "$DOCKERHUB_TOKEN" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+    - echo "$dockerhub_token" | docker login -u "$dockerhub_username" --password-stdin
 
   script:
     - cd end_to_end_devsecops_project
