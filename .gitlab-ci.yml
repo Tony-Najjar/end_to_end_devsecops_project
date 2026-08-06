@@ -33,6 +33,8 @@ build_and_push_image:
     - docker:26-dind
 
   before_script:
+    - echo "Username length: ${#dockerhub_username}"
+    - echo "Token length: ${#dockerhub_token}"
     - echo "$dockerhub_token" | docker login -u "$dockerhub_username" --password-stdin
 
   script:
