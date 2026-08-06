@@ -1,6 +1,7 @@
 stages:
   - test
-  - security
+  - quality
+  - secuity
   - build
 
 variables:
@@ -17,7 +18,7 @@ unit_test:
     - npm test
 
 sonarqube_check:
-  stage: security
+  stage: quality
   tags:
     - sobarqube
   image:
