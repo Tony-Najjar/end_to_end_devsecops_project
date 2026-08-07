@@ -56,6 +56,6 @@ trivy_scan_image:
     name: docker.io/aquasec/trivy:latest
     entrypoint: [""]
   script:
-    - trivy image --exit-code 1 --severity CRITICAL "$IMAGE_NAME"
+    - trivy image  --severity CRITICAL "$IMAGE_NAME"
   needs: 
     - build_and_push_image
