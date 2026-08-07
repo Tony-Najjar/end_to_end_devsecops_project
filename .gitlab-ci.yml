@@ -58,6 +58,6 @@ trivy_scan_image:
   script:
     - trivy image --exit-code 1 --severity HIGH,CRITICAL "$IMAGE_NAME"
   needs: 
-   - build_and_push_image
+    - build_and_push_image
 
   
