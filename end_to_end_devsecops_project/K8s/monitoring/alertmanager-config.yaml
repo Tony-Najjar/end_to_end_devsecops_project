@@ -1,0 +1,28 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: devops-project-email
+  namespace: devops-project
+  labels:
+    alertmanagerConfig: devops-project-email
+spec:
+  route:
+    receiver: email-team
+    groupBy:
+      - alertname
+    groupWait: 5s
+    groupInterval: 10s
+    repeatInterval: 2m
+
+  receivers:
+    - name: email-team
+      emailConfigs:
+        - to: schoolmena6@gmail.com
+          from: schoolmena6@gmail.com
+          smarthost: smtp.gmail.com:587
+          authUsername: schoolmena6@gmail.com
+          authPassword:
+            name: alertmanager-smtp-secret
+            key: smtp-password
+          requireTLS: true
+          sendResolved: true
