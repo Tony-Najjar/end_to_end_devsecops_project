@@ -17,10 +17,10 @@ spec:
   receivers:
     - name: email-team
       emailConfigs:
-        - to: schoolmena6@gmail.com
-          from: schoolmena6@gmail.com
+        - to: tnajjarkaf1@gmail.com
+          from: tnajjarkaf1@gmail.com
           smarthost: smtp.gmail.com:587
-          authUsername: schoolmena6@gmail.com
+          authUsername: tnajjarkaf1@gmail.com
           authPassword:
             name: alertmanager-smtp-secret
             key: smtp-password
