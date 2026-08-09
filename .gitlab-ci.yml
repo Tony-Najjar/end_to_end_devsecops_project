@@ -75,10 +75,11 @@ deploy_to_eks:
     - aws eks update-kubeconfig --name "$EKS_CLUSTER_NAME" --region "$AWS_REGION"
 
   script:
-    - sed -i "s|IMAGE_PLACEHOLDER|$IMAGE_NAME|g" K8s/app/deployment.yaml
-    - kubectl apply -f K8s/app/
-    - kubectl apply -f K8s/monitoring/prometheus-rule.yaml
-    - kubectl apply -f K8s/monitoring/alertmanager-config.yaml
+    
+    - sed -i "s|IMAGE_PLACEHOLDER|$IMAGE_NAME|g" end_to_end_devsecops_project/K8s/app/deployment.yaml
+    - kubectl apply -f end_to_end_devsecops_project/K8s/app/
+    - kubectl apply -f end_to_end_devsecops_project/K8s/monitoring/prometheus-rule.yaml
+    - kubectl apply -f end_to_end_devsecops_project/K8s/monitoring/alertmanager-config.yaml
     - kubectl -n devops-project rollout status deployment/end-to-end-devops-project
 
   needs:
