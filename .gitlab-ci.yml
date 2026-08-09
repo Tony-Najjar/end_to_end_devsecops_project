@@ -3,6 +3,7 @@ stages:
   - quality
   - build
   - security
+  - deploy
 
 variables:
   IMAGE_NAME: "$dockerhub_username/end-to-end-devsecops-project:$CI_PIPELINE_IID"
@@ -59,3 +60,26 @@ trivy_scan_image:
     - trivy image  --severity CRITICAL "$IMAGE_NAME"
   needs: 
     - build_and_push_image
+
+deploy_to_eks:
+  stage: deploy
+
+  image:
+    name: alpine/k8s:1.35.0
+    entrypoint: [""]
+
+  environment:
+    name: production
+
+  before_script:
+    - aws eks update-kubeconfig --name "$EKS_CLUSTER_NAME" --region "$AWS_REGION"
+
+  script:
+    - sed -i "s|IMAGE_PLACEHOLDER|$IMAGE_NAME|g" K8s/app/deployment.yaml
+    - kubectl apply -f K8s/app/
+    - kubectl apply -f K8s/monitoring/prometheus-rule.yaml
+    - kubectl apply -f K8s/monitoring/alertmanager-config.yaml
+    - kubectl -n devops-project rollout status deployment/end-to-end-devops-project
+
+  needs:
+    - trivy_image_scan
