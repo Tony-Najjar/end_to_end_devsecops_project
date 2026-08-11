@@ -12,7 +12,15 @@ The following diagrams provide an overview of the project architecture and repos
 
 ### Project Architecture
 
-<a href="docs/architecture/Project_Architecture.png"> <img src="docs/architecture/Project_Architecture.png" width="900" alt="Project Architecture"> </a>
+<a href="docs/architecture/Project_Architecture.png">
+  <img src="docs/architecture/Project_Architecture.png" width="900" alt="Project Architecture">
+</a>
+
+### Architecture Overview
+
+<a href="docs/architecture/Project_Architecture_overview.jpg">
+  <img src="docs/architecture/Project_Architecture_overview.jpg" width="900" alt="End-to-End DevSecOps Project Architecture Overview">
+</a>
 
 ### Repository Structure
 
@@ -155,13 +163,13 @@ The project uses the AWS Load Balancer Controller and Kubernetes Ingress to expo
   <img src="docs/screenshots/kubernetes/07_load_balancer_controller_iam_policy.png" width="900" alt="AWS Load Balancer Controller IAM Policy">
 </a>
 
-### Load Balancer Controller Service Account
+### Load Balancer Controller IAM Service Account
 
 <a href="docs/screenshots/kubernetes/08_lb_controller_iam_serviceaccount.png">
   <img src="docs/screenshots/kubernetes/08_lb_controller_iam_serviceaccount.png" width="900" alt="Load Balancer Controller IAM Service Account">
 </a>
 
-### Kubernetes Load Balancer Service Account
+### Load Balancer Controller Service Account
 
 <a href="docs/screenshots/kubernetes/09_lb_controller_serviceaccount.png">
   <img src="docs/screenshots/kubernetes/09_lb_controller_serviceaccount.png" width="900" alt="Load Balancer Controller Service Account">
