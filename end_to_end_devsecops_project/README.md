@@ -69,7 +69,7 @@ The project architecture combines cloud infrastructure, CI/CD, security, Kuberne
 <p align="center">
   <a href="docs/architecture/architecture.png">
     <img src="docs/architecture/architecture.png"
-         width="950"
+         width="1500"
          alt="End-to-End DevSecOps Architecture">
   </a>
 </p>
@@ -86,7 +86,7 @@ The project architecture combines cloud infrastructure, CI/CD, security, Kuberne
 <p align="center">
   <a href="docs/architecture/Project_Architecture_overview.jpg">
     <img src="docs/architecture/Project_Architecture_overview.jpg"
-         width="950"
+         width="1500"
          alt="Project Architecture Overview">
   </a>
 </p>
@@ -96,7 +96,7 @@ The project architecture combines cloud infrastructure, CI/CD, security, Kuberne
 <p align="center">
   <a href="docs/architecture/repository_structure.png">
     <img src="docs/architecture/repository_structure.png"
-         width="850"
+         width="1200"
          alt="Repository Structure">
   </a>
 </p>
@@ -112,7 +112,7 @@ The GitLab CI/CD pipeline automates the software delivery process through testin
 <p align="center">
   <a href="docs/screenshots/ci-cd/Final_CICD_pipeline.jpg">
     <img src="docs/screenshots/ci-cd/Final_CICD_pipeline.jpg"
-         width="950"
+         width="1500"
          alt="GitLab CI/CD Pipeline">
   </a>
 </p>
@@ -123,15 +123,15 @@ The GitLab CI/CD pipeline automates the software delivery process through testin
 
 ### Pipeline stages
 
-| Stage            | Purpose                              |
-| ---------------- | ------------------------------------ |
-| Unit Tests       | Validate application functionality   |
-| SonarQube        | Analyze code quality and security    |
-| Docker Build     | Build the application container      |
-| Docker Push      | Publish the container image          |
-| Trivy            | Scan the image for vulnerabilities   |
-| EKS Deployment   | Deploy the application to Kubernetes |
-| Application Test | Validate the deployed application    |
+| Stage                | Purpose                              |
+| -------------------- | ------------------------------------ |
+| **Unit Tests**       | Validate application functionality   |
+| **SonarQube**        | Analyze code quality and security    |
+| **Docker Build**     | Build the application container      |
+| **Docker Push**      | Publish the container image          |
+| **Trivy Scan**       | Scan the image for vulnerabilities   |
+| **EKS Deployment**   | Deploy the application to Kubernetes |
+| **Application Test** | Validate the deployed application    |
 
 <details>
 <summary><strong>Additional CI/CD Evidence</strong></summary>
@@ -141,7 +141,7 @@ The GitLab CI/CD pipeline automates the software delivery process through testin
 <p align="center">
   <a href="docs/screenshots/ci-cd/all_stages_Passed.png">
     <img src="docs/screenshots/ci-cd/all_stages_Passed.png"
-         width="950"
+         width="1500"
          alt="All CI/CD Pipeline Stages Passed">
   </a>
 </p>
@@ -151,7 +151,7 @@ The GitLab CI/CD pipeline automates the software delivery process through testin
 <p align="center">
   <a href="docs/screenshots/ci-cd/Final_application_test.jpg">
     <img src="docs/screenshots/ci-cd/Final_application_test.jpg"
-         width="950"
+         width="1500"
          alt="Final Application Validation">
   </a>
 </p>
@@ -167,7 +167,7 @@ The application is containerized using Docker and the resulting image is publish
 <p align="center">
   <a href="docs/screenshots/docker/Docker_overview.jpg">
     <img src="docs/screenshots/docker/Docker_overview.jpg"
-         width="900"
+         width="1500"
          alt="Docker Overview">
   </a>
 </p>
@@ -182,7 +182,7 @@ The application is containerized using Docker and the resulting image is publish
 <p align="center">
   <a href="docs/screenshots/docker/docker_test.png">
     <img src="docs/screenshots/docker/docker_test.png"
-         width="900"
+         width="1500"
          alt="Docker Test">
   </a>
 </p>
@@ -198,7 +198,7 @@ The containerized application is deployed to Kubernetes running on Amazon EKS.
 <p align="center">
   <a href="docs/screenshots/kubernetes/Kubernetes_overview.jpg">
     <img src="docs/screenshots/kubernetes/Kubernetes_overview.jpg"
-         width="900"
+         width="1500"
          alt="Kubernetes Overview">
   </a>
 </p>
@@ -208,7 +208,7 @@ The containerized application is deployed to Kubernetes running on Amazon EKS.
 <p align="center">
   <a href="docs/screenshots/aws/EKS_deployment.jpg">
     <img src="docs/screenshots/aws/EKS_deployment.jpg"
-         width="900"
+         width="1500"
          alt="Amazon EKS Deployment">
   </a>
 </p>
@@ -232,7 +232,7 @@ SonarQube provides automated code-quality and security analysis before deploymen
 <p align="center">
   <a href="docs/screenshots/security/SonarQube.jpg">
     <img src="docs/screenshots/security/SonarQube.jpg"
-         width="900"
+         width="1500"
          alt="SonarQube Analysis">
   </a>
 </p>
@@ -248,7 +248,7 @@ Trivy scans the container image for known vulnerabilities before the application
 <p align="center">
   <a href="docs/screenshots/security/Trivy_overview.jpg">
     <img src="docs/screenshots/security/Trivy_overview.jpg"
-         width="900"
+         width="1500"
          alt="Trivy Vulnerability Scanning">
   </a>
 </p>
@@ -259,7 +259,7 @@ Trivy scans the container image for known vulnerabilities before the application
 <p align="center">
   <a href="docs/screenshots/security/trivy_scan.png">
     <img src="docs/screenshots/security/trivy_scan.png"
-         width="900"
+         width="1500"
          alt="Detailed Trivy Security Scan">
   </a>
 </p>
@@ -275,7 +275,7 @@ The deployed environment uses **Prometheus, Grafana, and Alertmanager** for moni
 <p align="center">
   <a href="docs/screenshots/monitoring/Monitoring.jpg">
     <img src="docs/screenshots/monitoring/Monitoring.jpg"
-         width="950"
+         width="1500"
          alt="Prometheus Grafana and Alertmanager Monitoring">
   </a>
 </p>
@@ -327,18 +327,39 @@ Infrastructure as Code makes the environment repeatable, version-controlled, and
 
 ---
 
+# 🔎 Project Evidence
+
+The repository contains source code, infrastructure definitions, Kubernetes manifests, CI/CD configuration, and screenshots documenting the implementation.
+
+| Technology       | Evidence                                 |
+| ---------------- | ---------------------------------------- |
+| **GitLab CI/CD** | Pipeline execution and successful stages |
+| **AWS / EKS**    | EKS deployment evidence                  |
+| **Kubernetes**   | Kubernetes deployment evidence           |
+| **Terraform**    | Infrastructure-as-Code configuration     |
+| **Docker**       | Container build and testing evidence     |
+| **SonarQube**    | Code-quality and security analysis       |
+| **Trivy**        | Container vulnerability scanning         |
+| **Prometheus**   | Metrics and monitoring                   |
+| **Grafana**      | Monitoring dashboards                    |
+| **Alertmanager** | Alerting and notification workflow       |
+
+The screenshots are provided as supporting evidence, while the repository itself contains the configuration and source files used to implement the project.
+
+---
+
 # 🧰 Technologies
 
-| Category               | Technologies                      |
-| ---------------------- | --------------------------------- |
-| Cloud                  | AWS, Amazon EKS                   |
-| Infrastructure as Code | Terraform                         |
-| CI/CD                  | GitLab CI/CD                      |
-| Containers             | Docker, DockerHub                 |
-| Security               | SonarQube, Trivy                  |
-| Orchestration          | Kubernetes                        |
-| Monitoring             | Prometheus, Grafana, Alertmanager |
-| Application            | Node.js                           |
+| Category                   | Technologies                      |
+| -------------------------- | --------------------------------- |
+| **Cloud**                  | AWS, Amazon EKS                   |
+| **Infrastructure as Code** | Terraform                         |
+| **CI/CD**                  | GitLab CI/CD                      |
+| **Containers**             | Docker, DockerHub                 |
+| **Security**               | SonarQube, Trivy                  |
+| **Orchestration**          | Kubernetes                        |
+| **Monitoring**             | Prometheus, Grafana, Alertmanager |
+| **Application**            | Node.js                           |
 
 ---
 
