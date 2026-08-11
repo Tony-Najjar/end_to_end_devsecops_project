@@ -1,5 +1,19 @@
 # End-to-End DevSecOps CI/CD Pipeline on AWS EKS
 
+<p align="center">
+  <strong>
+    Automated CI/CD • Infrastructure as Code • Container Security • Kubernetes • AWS • Observability
+  </strong>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/AWS-EKS-orange" alt="AWS EKS">
+  <img src="https://img.shields.io/badge/Kubernetes-Container%20Orchestration-blue" alt="Kubernetes">
+  <img src="https://img.shields.io/badge/Terraform-Infrastructure%20as%20Code-purple" alt="Terraform">
+  <img src="https://img.shields.io/badge/Docker-Containerization-blue" alt="Docker">
+  <img src="https://img.shields.io/badge/DevSecOps-Security-green" alt="DevSecOps">
+</p>
+
 An end-to-end DevSecOps project demonstrating automated testing, code-quality analysis, containerization, vulnerability scanning, infrastructure provisioning, Kubernetes deployment, and monitoring on AWS.
 
 The project integrates **GitLab CI/CD, Docker, DockerHub, SonarQube, Trivy, Terraform, Kubernetes, Amazon EKS, Prometheus, Grafana, and Alertmanager** into a complete DevSecOps workflow.
@@ -53,7 +67,15 @@ Email Notifications
 The project architecture combines cloud infrastructure, CI/CD, security, Kubernetes, and observability into a single workflow.
 
 <p align="center">
-  <img src="docs/architecture/architecture.png" width="1000" alt="End-to-End DevSecOps Architecture">
+  <a href="docs/architecture/architecture.png">
+    <img src="docs/architecture/architecture.png"
+         width="950"
+         alt="End-to-End DevSecOps Architecture">
+  </a>
+</p>
+
+<p align="center">
+  <em>Click the diagram to open the original image.</em>
 </p>
 
 <details>
@@ -62,13 +84,21 @@ The project architecture combines cloud infrastructure, CI/CD, security, Kuberne
 ### Project Architecture Overview
 
 <p align="center">
-  <img src="docs/architecture/Project_Architecture_overview.jpg" width="1000" alt="Project Architecture Overview">
+  <a href="docs/architecture/Project_Architecture_overview.jpg">
+    <img src="docs/architecture/Project_Architecture_overview.jpg"
+         width="950"
+         alt="Project Architecture Overview">
+  </a>
 </p>
 
 ### Repository Structure
 
 <p align="center">
-  <img src="docs/architecture/repository_structure.png" width="850" alt="Repository Structure">
+  <a href="docs/architecture/repository_structure.png">
+    <img src="docs/architecture/repository_structure.png"
+         width="850"
+         alt="Repository Structure">
+  </a>
 </p>
 
 </details>
@@ -80,7 +110,15 @@ The project architecture combines cloud infrastructure, CI/CD, security, Kuberne
 The GitLab CI/CD pipeline automates the software delivery process through testing, code analysis, containerization, security scanning, and deployment.
 
 <p align="center">
-  <img src="docs/screenshots/ci-cd/Final_CICD_pipeline.jpg" width="1000" alt="GitLab CI/CD Pipeline">
+  <a href="docs/screenshots/ci-cd/Final_CICD_pipeline.jpg">
+    <img src="docs/screenshots/ci-cd/Final_CICD_pipeline.jpg"
+         width="950"
+         alt="GitLab CI/CD Pipeline">
+  </a>
+</p>
+
+<p align="center">
+  <em>Click the screenshot to open the original full-resolution image.</em>
 </p>
 
 ### Pipeline stages
@@ -96,18 +134,26 @@ The GitLab CI/CD pipeline automates the software delivery process through testin
 | Application Test | Validate the deployed application    |
 
 <details>
-<summary><strong>Pipeline Execution Evidence</strong></summary>
+<summary><strong>Additional CI/CD Evidence</strong></summary>
 
 ### All Pipeline Stages Passed
 
 <p align="center">
-  <img src="docs/screenshots/ci-cd/all_stages_Passed.png" width="1000" alt="All CI/CD Pipeline Stages Passed">
+  <a href="docs/screenshots/ci-cd/all_stages_Passed.png">
+    <img src="docs/screenshots/ci-cd/all_stages_Passed.png"
+         width="950"
+         alt="All CI/CD Pipeline Stages Passed">
+  </a>
 </p>
 
 ### Application Validation
 
 <p align="center">
-  <img src="docs/screenshots/ci-cd/Final_application_test.jpg" width="1000" alt="Final Application Validation">
+  <a href="docs/screenshots/ci-cd/Final_application_test.jpg">
+    <img src="docs/screenshots/ci-cd/Final_application_test.jpg"
+         width="950"
+         alt="Final Application Validation">
+  </a>
 </p>
 
 </details>
@@ -119,14 +165,26 @@ The GitLab CI/CD pipeline automates the software delivery process through testin
 The application is containerized using Docker and the resulting image is published to DockerHub.
 
 <p align="center">
-  <img src="docs/screenshots/docker/Docker_overview.jpg" width="950" alt="Docker Overview">
+  <a href="docs/screenshots/docker/Docker_overview.jpg">
+    <img src="docs/screenshots/docker/Docker_overview.jpg"
+         width="900"
+         alt="Docker Overview">
+  </a>
+</p>
+
+<p align="center">
+  <em>Click the screenshot to open the original image.</em>
 </p>
 
 <details>
 <summary><strong>Docker Testing Evidence</strong></summary>
 
 <p align="center">
-  <img src="docs/screenshots/docker/docker_test.png" width="950" alt="Docker Test">
+  <a href="docs/screenshots/docker/docker_test.png">
+    <img src="docs/screenshots/docker/docker_test.png"
+         width="900"
+         alt="Docker Test">
+  </a>
 </p>
 
 </details>
@@ -138,13 +196,25 @@ The application is containerized using Docker and the resulting image is publish
 The containerized application is deployed to Kubernetes running on Amazon EKS.
 
 <p align="center">
-  <img src="docs/screenshots/kubernetes/Kubernetes_overview.jpg" width="950" alt="Kubernetes Overview">
+  <a href="docs/screenshots/kubernetes/Kubernetes_overview.jpg">
+    <img src="docs/screenshots/kubernetes/Kubernetes_overview.jpg"
+         width="900"
+         alt="Kubernetes Overview">
+  </a>
 </p>
 
 ### Amazon EKS Deployment
 
 <p align="center">
-  <img src="docs/screenshots/aws/EKS_deployment.jpg" width="950" alt="Amazon EKS Deployment">
+  <a href="docs/screenshots/aws/EKS_deployment.jpg">
+    <img src="docs/screenshots/aws/EKS_deployment.jpg"
+         width="900"
+         alt="Amazon EKS Deployment">
+  </a>
+</p>
+
+<p align="center">
+  <em>Click either screenshot to inspect the original image.</em>
 </p>
 
 The Kubernetes deployment demonstrates the transition from the container image to a running application in an AWS-managed Kubernetes environment.
@@ -160,7 +230,15 @@ Security controls are integrated directly into the CI/CD pipeline.
 SonarQube provides automated code-quality and security analysis before deployment.
 
 <p align="center">
-  <img src="docs/screenshots/security/SonarQube.jpg" width="950" alt="SonarQube Analysis">
+  <a href="docs/screenshots/security/SonarQube.jpg">
+    <img src="docs/screenshots/security/SonarQube.jpg"
+         width="900"
+         alt="SonarQube Analysis">
+  </a>
+</p>
+
+<p align="center">
+  <em>Click the screenshot to inspect the original SonarQube results.</em>
 </p>
 
 ## Trivy
@@ -168,14 +246,22 @@ SonarQube provides automated code-quality and security analysis before deploymen
 Trivy scans the container image for known vulnerabilities before the application is deployed.
 
 <p align="center">
-  <img src="docs/screenshots/security/Trivy_overview.jpg" width="950" alt="Trivy Vulnerability Scanning">
+  <a href="docs/screenshots/security/Trivy_overview.jpg">
+    <img src="docs/screenshots/security/Trivy_overview.jpg"
+         width="900"
+         alt="Trivy Vulnerability Scanning">
+  </a>
 </p>
 
 <details>
 <summary><strong>Detailed Trivy Scan</strong></summary>
 
 <p align="center">
-  <img src="docs/screenshots/security/trivy_scan.png" width="950" alt="Detailed Trivy Security Scan">
+  <a href="docs/screenshots/security/trivy_scan.png">
+    <img src="docs/screenshots/security/trivy_scan.png"
+         width="900"
+         alt="Detailed Trivy Security Scan">
+  </a>
 </p>
 
 </details>
@@ -187,7 +273,15 @@ Trivy scans the container image for known vulnerabilities before the application
 The deployed environment uses **Prometheus, Grafana, and Alertmanager** for monitoring and alerting.
 
 <p align="center">
-  <img src="docs/screenshots/monitoring/Monitoring.jpg" width="1000" alt="Prometheus Grafana and Alertmanager Monitoring">
+  <a href="docs/screenshots/monitoring/Monitoring.jpg">
+    <img src="docs/screenshots/monitoring/Monitoring.jpg"
+         width="950"
+         alt="Prometheus Grafana and Alertmanager Monitoring">
+  </a>
+</p>
+
+<p align="center">
+  <em>Click the screenshot to open the original monitoring image.</em>
 </p>
 
 ### Monitoring workflow
@@ -229,7 +323,7 @@ Application
 
 Infrastructure as Code makes the environment repeatable, version-controlled, and easier to manage.
 
-> **Note:** The AWS infrastructure used for the project has been destroyed after testing to avoid leaving unnecessary cloud resources running. The repository contains the Terraform configuration and screenshots documenting the completed deployment.
+> **Infrastructure lifecycle:** The AWS environment was provisioned using Terraform for deployment and testing, then destroyed after validation to avoid unnecessary cloud costs. The repository retains the Terraform configuration and screenshots documenting the completed deployment.
 
 ---
 
