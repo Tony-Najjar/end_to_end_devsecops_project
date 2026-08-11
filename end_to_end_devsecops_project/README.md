@@ -1,452 +1,474 @@
 # End-to-End DevSecOps CI/CD Pipeline on AWS EKS
 
-<p align="center">
-  <strong>
-    Automated CI/CD • Infrastructure as Code • Container Security • Kubernetes • AWS • Observability
-  </strong>
-</p>
+An end-to-end DevSecOps project that automates application testing, code-quality analysis, containerization, vulnerability scanning, infrastructure provisioning, Kubernetes deployment, monitoring, and alerting.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/AWS-EKS-orange" alt="AWS EKS">
-  <img src="https://img.shields.io/badge/Kubernetes-Container%20Orchestration-blue" alt="Kubernetes">
-  <img src="https://img.shields.io/badge/Terraform-Infrastructure%20as%20Code-purple" alt="Terraform">
-  <img src="https://img.shields.io/badge/Docker-Containerization-blue" alt="Docker">
-  <img src="https://img.shields.io/badge/DevSecOps-Security-green" alt="DevSecOps">
-</p>
-
-An end-to-end DevSecOps project demonstrating automated testing, code-quality analysis, containerization, vulnerability scanning, infrastructure provisioning, Kubernetes deployment, and monitoring on AWS.
-
-The project integrates **GitLab CI/CD, Docker, DockerHub, SonarQube, Trivy, Terraform, Kubernetes, Amazon EKS, Prometheus, Grafana, and Alertmanager** into a complete DevSecOps workflow.
+This project integrates **GitLab CI/CD, Docker, DockerHub, SonarQube, Trivy, Terraform, Kubernetes, Amazon EKS, Prometheus, Grafana, and Alertmanager** into a complete DevSecOps workflow.
 
 ---
 
-## 🚀 Project Overview
+## Project Architecture
 
-The project demonstrates the complete application delivery lifecycle:
+The following diagrams provide an overview of the project architecture and repository structure.
 
-```text
-Developer
-    |
-    v
-GitLab
-    |
-    v
-Unit Tests
-    |
-    v
-SonarQube
-    |
-    v
-Docker Build & Push
-    |
-    v
-Trivy Security Scan
-    |
-    v
-Amazon EKS
-    |
-    v
-Kubernetes Application
-    |
-    +----------------------+
-    |                      |
-    v                      v
-Prometheus              Grafana
-    |
-    v
-Alertmanager
-    |
-    v
-Email Notifications
-```
+### Project Architecture
 
----
+<a href="docs/architecture/Project_Architecture.png">
+  <img src="docs/architecture/Project_Architecture.png" width="2000" alt="Project Architecture">
+</a>
 
-# 🏗️ Architecture
+### DevSecOps Architecture Overview
 
-The project architecture combines cloud infrastructure, CI/CD, security, Kubernetes, and observability into a single workflow.
-
-<p align="center">
-  <a href="docs/architecture/architecture.png">
-    <img src="docs/architecture/architecture.png"
-         width="2000"
-         alt="End-to-End DevSecOps Architecture">
-  </a>
-</p>
-
-<p align="center">
-  <em>Click the diagram to open the original image.</em>
-</p>
-
-<details>
-<summary><strong>Additional Architecture Documentation</strong></summary>
-
-### Project Architecture Overview
-
-<p align="center">
-  <a href="docs/architecture/Project_Architecture_overview.jpg">
-    <img src="docs/architecture/Project_Architecture_overview.jpg"
-         width="2000"
-         alt="Project Architecture Overview">
-  </a>
-</p>
+<a href="docs/architecture/Project_Architecture_overview.jpg">
+  <img src="docs/architecture/Project_Architecture_overview.jpg" width="2000" alt="End-to-End DevSecOps Project Architecture Overview">
+</a>
 
 ### Repository Structure
 
-<p align="center">
-  <a href="docs/architecture/repository_structure.png">
-    <img src="docs/architecture/repository_structure.png"
-         width="1500"
-         alt="Repository Structure">
-  </a>
-</p>
-
-</details>
+<a href="docs/architecture/Project_repo.png">
+  <img src="docs/architecture/Project_repo.png" width="2000" alt="Project Repository Structure">
+</a>
 
 ---
 
-# 🔄 CI/CD Pipeline
+## CI/CD Pipeline
 
-The GitLab CI/CD pipeline automates the software delivery process through testing, code analysis, containerization, security scanning, and deployment.
+GitLab CI/CD automates the application lifecycle from testing through security validation and deployment.
 
-<p align="center">
-  <a href="docs/screenshots/ci-cd/Final_CICD_pipeline.jpg">
-    <img src="docs/screenshots/ci-cd/Final_CICD_pipeline.jpg"
-         width="2000"
-         alt="GitLab CI/CD Pipeline">
-  </a>
-</p>
+### Pipeline Flow
 
-<p align="center">
-  <em>Click the screenshot to open the original full-resolution image.</em>
-</p>
+```text
+GitLab
+   |
+   v
+Application Tests
+   |
+   v
+SonarQube Analysis
+   |
+   v
+Docker Build
+   |
+   v
+DockerHub
+   |
+   v
+Trivy Security Scan
+   |
+   v
+Kubernetes / Amazon EKS
+   |
+   v
+Application Validation
+```
 
-### Pipeline stages
+### Pipeline Stages
 
-| Stage                | Purpose                              |
-| -------------------- | ------------------------------------ |
-| **Unit Tests**       | Validate application functionality   |
-| **SonarQube**        | Analyze code quality and security    |
-| **Docker Build**     | Build the application container      |
-| **Docker Push**      | Publish the container image          |
-| **Trivy Scan**       | Scan the image for vulnerabilities   |
-| **EKS Deployment**   | Deploy the application to Kubernetes |
-| **Application Test** | Validate the deployed application    |
-
-<details>
-<summary><strong>Additional CI/CD Evidence</strong></summary>
-
-### All Pipeline Stages Passed
-
-<p align="center">
-  <a href="docs/screenshots/ci-cd/all_stages_Passed.png">
-    <img src="docs/screenshots/ci-cd/all_stages_Passed.png"
-         width="2000"
-         alt="All CI/CD Pipeline Stages Passed">
-  </a>
-</p>
-
-### Application Validation
-
-<p align="center">
-  <a href="docs/screenshots/ci-cd/Final_application_test.jpg">
-    <img src="docs/screenshots/ci-cd/Final_application_test.jpg"
-         width="2000"
-         alt="Final Application Validation">
-  </a>
-</p>
-
-</details>
+<a href="docs/screenshots/ci-cd/all_stages_Passed.png">
+  <img src="docs/screenshots/ci-cd/all_stages_Passed.png" width="2000" alt="All CI/CD Pipeline Stages Passed">
+</a>
 
 ---
 
-# 🐳 Docker
+## Docker
 
-The application is containerized using Docker and the resulting image is published to DockerHub.
+Docker is used to containerize the application before publishing the image to DockerHub.
 
-<p align="center">
-  <a href="docs/screenshots/docker/Docker_overview.jpg">
-    <img src="docs/screenshots/docker/Docker_overview.jpg"
-         width="2000"
-         alt="Docker Overview">
-  </a>
-</p>
+### Dockerfile Configuration
 
-<p align="center">
-  <em>Click the screenshot to open the original image.</em>
-</p>
+<a href="docs/screenshots/docker/dockerfile_configuration1.png">
+  <img src="docs/screenshots/docker/dockerfile_configuration1.png" width="2000" alt="Dockerfile Configuration">
+</a>
 
-<details>
-<summary><strong>Docker Testing Evidence</strong></summary>
+### Docker Image
 
-<p align="center">
-  <a href="docs/screenshots/docker/docker_test.png">
-    <img src="docs/screenshots/docker/docker_test.png"
-         width="2000"
-         alt="Docker Test">
-  </a>
-</p>
+<a href="docs/screenshots/docker/docker_image1.png">
+  <img src="docs/screenshots/docker/docker_image1.png" width="2000" alt="Docker Image">
+</a>
 
-</details>
+### DockerHub Image
 
----
+<a href="docs/screenshots/docker/dockerhub_image1.png">
+  <img src="docs/screenshots/docker/dockerhub_image1.png" width="2000" alt="DockerHub Container Image">
+</a>
 
-# ☸️ Kubernetes & Amazon EKS
+### Docker Test
 
-The containerized application is deployed to Kubernetes running on Amazon EKS.
+<a href="docs/screenshots/docker/test_pass1.png">
+  <img src="docs/screenshots/docker/test_pass1.png" width="2000" alt="Docker Test Passed">
+</a>
 
-<p align="center">
-  <a href="docs/screenshots/kubernetes/Kubernetes_overview.jpg">
-    <img src="docs/screenshots/kubernetes/Kubernetes_overview.jpg"
-         width="2000"
-         alt="Kubernetes Overview">
-  </a>
-</p>
+### Automated Test Addition
 
-### Amazon EKS Deployment
-
-<p align="center">
-  <a href="docs/screenshots/aws/EKS_deployment.jpg">
-    <img src="docs/screenshots/aws/EKS_deployment.jpg"
-         width="2000"
-         alt="Amazon EKS Deployment">
-  </a>
-</p>
-
-<p align="center">
-  <em>Click either screenshot to inspect the original image.</em>
-</p>
-
-The Kubernetes deployment demonstrates the transition from the container image to a running application in an AWS-managed Kubernetes environment.
+<a href="docs/screenshots/docker/added_test1.png">
+  <img src="docs/screenshots/docker/added_test1.png" width="2000" alt="Automated Test Added">
+</a>
 
 ---
 
-# 🔐 DevSecOps Security
+## Infrastructure as Code
 
-Security controls are integrated directly into the CI/CD pipeline.
+Terraform is used to provision the AWS infrastructure required for the Kubernetes environment.
+
+### Terraform Apply
+
+<a href="docs/screenshots/kubernetes/01_terraform_apply_complete.png">
+  <img src="docs/screenshots/kubernetes/01_terraform_apply_complete.png" width="2000" alt="Terraform Apply Completed Successfully">
+</a>
+
+---
+
+## Kubernetes and Amazon EKS
+
+The application is deployed to Kubernetes running on Amazon EKS.
+
+### Kubernetes Nodes
+
+<a href="docs/screenshots/kubernetes/02_kubernetes_nodes_ready.png">
+  <img src="docs/screenshots/kubernetes/02_kubernetes_nodes_ready.png" width="2000" alt="Kubernetes Nodes Ready">
+</a>
+
+### Kubernetes Cluster Information
+
+<a href="docs/screenshots/kubernetes/03_kubernetes_cluster_info.png">
+  <img src="docs/screenshots/kubernetes/03_kubernetes_cluster_info.png" width="2000" alt="Kubernetes Cluster Information">
+</a>
+
+### Kubernetes System Pods
+
+<a href="docs/screenshots/kubernetes/04_kubernetes_system_pods.png">
+  <img src="docs/screenshots/kubernetes/04_kubernetes_system_pods.png" width="2000" alt="Kubernetes System Pods">
+</a>
+
+### AWS EKS Cluster
+
+<a href="docs/screenshots/aws/eks_cluster1.png">
+  <img src="docs/screenshots/aws/eks_cluster1.png" width="2000" alt="Amazon EKS Cluster">
+</a>
+
+### EKS Application Pods
+
+<a href="docs/screenshots/aws/EKS Application Pods Running Successfully1.png">
+  <img src="docs/screenshots/aws/EKS Application Pods Running Successfully1.png" width="2000" alt="EKS Application Pods Running Successfully">
+</a>
+
+---
+
+## Kubernetes Load Balancing and Ingress
+
+The project uses the AWS Load Balancer Controller and Kubernetes Ingress to expose the application.
+
+### Load Balancer Controller IAM Policy
+
+<a href="docs/screenshots/kubernetes/07_load_balancer_controller_iam_policy.png">
+  <img src="docs/screenshots/kubernetes/07_load_balancer_controller_iam_policy.png" width="2000" alt="AWS Load Balancer Controller IAM Policy">
+</a>
+
+### Load Balancer Controller Service Account
+
+<a href="docs/screenshots/kubernetes/08_lb_controller_iam_serviceaccount.png">
+  <img src="docs/screenshots/kubernetes/08_lb_controller_iam_serviceaccount.png" width="2000" alt="Load Balancer Controller IAM Service Account">
+</a>
+
+### Kubernetes Load Balancer Service Account
+
+<a href="docs/screenshots/kubernetes/09_lb_controller_serviceaccount.png">
+  <img src="docs/screenshots/kubernetes/09_lb_controller_serviceaccount.png" width="2000" alt="Load Balancer Controller Service Account">
+</a>
+
+### Kubernetes Service
+
+<a href="docs/screenshots/aws/Kubernetes Service Successfully Created1.png">
+  <img src="docs/screenshots/aws/Kubernetes Service Successfully Created1.png" width="2000" alt="Kubernetes Service Successfully Created">
+</a>
+
+### AWS Load Balancer
+
+<a href="docs/screenshots/aws/load_balancer1.png">
+  <img src="docs/screenshots/aws/load_balancer1.png" width="2000" alt="AWS Load Balancer">
+</a>
+
+### AWS Application Load Balancer Provisioned Through Kubernetes Ingress
+
+<a href="docs/screenshots/aws/AWS Application Load Balancer Successfully Provisioned Through Kubernetes Ingress1.png">
+  <img src="docs/screenshots/aws/AWS Application Load Balancer Successfully Provisioned Through Kubernetes Ingress1.png" width="2000" alt="AWS Application Load Balancer Successfully Provisioned Through Kubernetes Ingress">
+</a>
+
+### Application Running
+
+<a href="docs/screenshots/aws/actual application1.png">
+  <img src="docs/screenshots/aws/actual application1.png" width="2000" alt="Deployed Application Running">
+</a>
+
+### EC2 Instances
+
+<a href="docs/screenshots/aws/ec2_instances1.png">
+  <img src="docs/screenshots/aws/ec2_instances1.png" width="2000" alt="AWS EC2 Instances">
+</a>
+
+---
+
+## DevSecOps Security
+
+Security is integrated into the CI/CD workflow through SonarQube and Trivy.
+
+---
 
 ## SonarQube
 
-SonarQube provides automated code-quality and security analysis before deployment.
+SonarQube provides static code analysis and code-quality/security analysis.
 
-<p align="center">
-  <a href="docs/screenshots/security/SonarQube.jpg">
-    <img src="docs/screenshots/security/SonarQube.jpg"
-         width="2000"
-         alt="SonarQube Analysis">
-  </a>
-</p>
+### GitLab Pipeline Success
 
-<p align="center">
-  <em>Click the screenshot to inspect the original SonarQube results.</em>
-</p>
+<a href="docs/screenshots/security/SonarQube/gitlab_pipeline_sucess1.png">
+  <img src="docs/screenshots/security/SonarQube/gitlab_pipeline_sucess1.png" width="2000" alt="GitLab Pipeline Successful">
+</a>
+
+### SonarQube Analysis History
+
+<a href="docs/screenshots/security/SonarQube/sonarqube_analysis_history.png -1 .png">
+  <img src="docs/screenshots/security/SonarQube/sonarqube_analysis_history.png -1 .png" width="2000" alt="SonarQube Analysis History">
+</a>
+
+### SonarQube Project Overview
+
+<a href="docs/screenshots/security/SonarQube/sonarqube_project_overview1 .png">
+  <img src="docs/screenshots/security/SonarQube/sonarqube_project_overview1 .png" width="2000" alt="SonarQube Project Overview">
+</a>
+
+### SonarQube Quality Gate
+
+<a href="docs/screenshots/security/SonarQube/sonarqube_quality_gate1.png">
+  <img src="docs/screenshots/security/SonarQube/sonarqube_quality_gate1.png" width="2000" alt="SonarQube Quality Gate">
+</a>
+
+### SonarQube Security Issues
+
+<a href="docs/screenshots/security/SonarQube/sonarqube_security_issues.png -1.png">
+  <img src="docs/screenshots/security/SonarQube/sonarqube_security_issues.png -1.png" width="2000" alt="SonarQube Security Issues">
+</a>
+
+---
 
 ## Trivy
 
-Trivy scans the container image for known vulnerabilities before the application is deployed.
+Trivy scans container images for known vulnerabilities before deployment.
 
-<p align="center">
-  <a href="docs/screenshots/security/Trivy_overview.jpg">
-    <img src="docs/screenshots/security/Trivy_overview.jpg"
-         width="2000"
-         alt="Trivy Vulnerability Scanning">
-  </a>
-</p>
+### Trivy Image Scan
 
-<details>
-<summary><strong>Detailed Trivy Scan</strong></summary>
+<a href="docs/screenshots/security/Trivy_image_scan/Screenshot1.png">
+  <img src="docs/screenshots/security/Trivy_image_scan/Screenshot1.png" width="2000" alt="Trivy Image Scan">
+</a>
 
-<p align="center">
-  <a href="docs/screenshots/security/trivy_scan.png">
-    <img src="docs/screenshots/security/trivy_scan.png"
-         width="2000"
-         alt="Detailed Trivy Security Scan">
-  </a>
-</p>
+### Trivy Scan Added to Pipeline
 
-</details>
+<a href="docs/screenshots/security/Trivy_image_scan/trivy_image_scan_added1.png">
+  <img src="docs/screenshots/security/Trivy_image_scan/trivy_image_scan_added1.png" width="2000" alt="Trivy Image Scan Added to CI/CD Pipeline">
+</a>
 
 ---
 
-# 📊 Monitoring & Observability
+## Monitoring and Observability
 
-The deployed environment uses **Prometheus, Grafana, and Alertmanager** for monitoring and alerting.
+The project uses **Prometheus, Grafana, and Alertmanager** for monitoring, metrics collection, dashboards, and alerting.
 
-<p align="center">
-  <a href="docs/screenshots/monitoring/Monitoring.jpg">
-    <img src="docs/screenshots/monitoring/Monitoring.jpg"
-         width="2000"
-         alt="Prometheus Grafana and Alertmanager Monitoring">
-  </a>
-</p>
+### Prometheus Stack Installation
 
-<p align="center">
-  <em>Click the screenshot to open the original monitoring image.</em>
-</p>
+<a href="docs/screenshots/monitoring/10_prometheus_stack_installed1.png">
+  <img src="docs/screenshots/monitoring/10_prometheus_stack_installed1.png" width="2000" alt="Prometheus Stack Installed">
+</a>
 
-### Monitoring workflow
+### Observability Pods
 
-```text
-Application / Kubernetes
-          |
-          v
-      Prometheus
-       /       \
-      v         v
-  Grafana   Alertmanager
-                |
-                v
-        Email Notification
-```
+<a href="docs/screenshots/monitoring/11_observability_pods_running1.png">
+  <img src="docs/screenshots/monitoring/11_observability_pods_running1.png" width="2000" alt="Observability Pods Running">
+</a>
 
----
+### Prometheus and Grafana Connection
 
-# 🏗️ Infrastructure as Code
+<a href="docs/screenshots/ci-cd/Prometheus_Grafana_connection1.png">
+  <img src="docs/screenshots/ci-cd/Prometheus_Grafana_connection1.png" width="2000" alt="Prometheus and Grafana Connection">
+</a>
 
-Terraform is used to provision the AWS infrastructure supporting the Kubernetes deployment.
+### Prometheus Query
 
-```text
-Terraform
-    |
-    v
-AWS Infrastructure
-    |
-    v
-Amazon EKS
-    |
-    v
-Kubernetes
-    |
-    v
-Application
-```
+<a href="docs/screenshots/ci-cd/Prometheus_query1.png">
+  <img src="docs/screenshots/ci-cd/Prometheus_query1.png" width="2000" alt="Prometheus Query">
+</a>
 
-Infrastructure as Code makes the environment repeatable, version-controlled, and easier to manage.
+### Prometheus Service Monitoring
 
-> **Infrastructure lifecycle:** The AWS environment was provisioned using Terraform for deployment and testing, then destroyed after validation to avoid unnecessary cloud costs. The repository retains the Terraform configuration and screenshots documenting the completed deployment.
+<a href="docs/screenshots/ci-cd/Prometheus_svc_monitoring1.png">
+  <img src="docs/screenshots/ci-cd/Prometheus_svc_monitoring1.png" width="2000" alt="Prometheus Service Monitoring">
+</a>
+
+### Grafana Dashboard
+
+<a href="docs/screenshots/ci-cd/Grafana_dashboard1.png">
+  <img src="docs/screenshots/ci-cd/Grafana_dashboard1.png" width="2000" alt="Grafana Dashboard">
+</a>
 
 ---
 
-# 🔎 Project Evidence
+## Alerting
 
-The repository contains source code, infrastructure definitions, Kubernetes manifests, CI/CD configuration, and screenshots documenting the implementation.
+Alertmanager is configured to detect firing alerts and support notification delivery.
 
-| Technology       | Evidence                                 |
-| ---------------- | ---------------------------------------- |
-| **GitLab CI/CD** | Pipeline execution and successful stages |
-| **AWS / EKS**    | EKS deployment evidence                  |
-| **Kubernetes**   | Kubernetes deployment evidence           |
-| **Terraform**    | Infrastructure-as-Code configuration     |
-| **Docker**       | Container build and testing evidence     |
-| **SonarQube**    | Code-quality and security analysis       |
-| **Trivy**        | Container vulnerability scanning         |
-| **Prometheus**   | Metrics and monitoring                   |
-| **Grafana**      | Monitoring dashboards                    |
-| **Alertmanager** | Alerting and notification workflow       |
+### Alertmanager
 
-The screenshots provide supporting evidence, while the repository contains the configuration and source files used to implement the project.
+<a href="docs/screenshots/ci-cd/alertmanager.png">
+  <img src="docs/screenshots/ci-cd/alertmanager.png" width="2000" alt="Alertmanager">
+</a>
+
+### Alertmanager Alert
+
+<a href="docs/screenshots/ci-cd/Alertmanager_alert.png">
+  <img src="docs/screenshots/ci-cd/Alertmanager_alert.png" width="2000" alt="Alertmanager Alert">
+</a>
+
+### Prometheus Alert
+
+<a href="docs/screenshots/ci-cd/Prometheus_alert1.png">
+  <img src="docs/screenshots/ci-cd/Prometheus_alert1.png" width="2000" alt="Prometheus Alert">
+</a>
+
+### Grafana Firing Alert
+
+<a href="docs/screenshots/ci-cd/Grafana_firing_alert1.png">
+  <img src="docs/screenshots/ci-cd/Grafana_firing_alert1.png" width="2000" alt="Grafana Firing Alert">
+</a>
+
+### Gmail Alert
+
+<a href="docs/screenshots/ci-cd/Gmail_alert.png">
+  <img src="docs/screenshots/ci-cd/Gmail_alert.png" width="2000" alt="Gmail Alert Notification">
+</a>
 
 ---
 
-# 🧰 Technologies
+## Technologies
 
-| Category                   | Technologies                      |
-| -------------------------- | --------------------------------- |
-| **Cloud**                  | AWS, Amazon EKS                   |
-| **Infrastructure as Code** | Terraform                         |
-| **CI/CD**                  | GitLab CI/CD                      |
-| **Containers**             | Docker, DockerHub                 |
-| **Security**               | SonarQube, Trivy                  |
-| **Orchestration**          | Kubernetes                        |
-| **Monitoring**             | Prometheus, Grafana, Alertmanager |
-| **Application**            | Node.js                           |
+| Area           | Technologies                      |
+| -------------- | --------------------------------- |
+| Cloud          | AWS, Amazon EKS                   |
+| Infrastructure | Terraform                         |
+| CI/CD          | GitLab CI/CD                      |
+| Containers     | Docker, DockerHub                 |
+| Security       | SonarQube, Trivy                  |
+| Orchestration  | Kubernetes                        |
+| Monitoring     | Prometheus, Grafana, Alertmanager |
+| Application    | Node.js                           |
 
 ---
 
-# 🔒 DevSecOps Practices Demonstrated
+## DevSecOps Concepts Demonstrated
 
 - Infrastructure as Code with Terraform
 - Continuous Integration and Continuous Delivery
-- Automated unit testing
-- Static code analysis
+- Automated application testing
 - Containerization with Docker
-- Container image publishing
-- Container vulnerability scanning
+- Container image management with DockerHub
 - Kubernetes orchestration
 - Amazon EKS deployment
-- Application validation
+- AWS Load Balancer Controller
+- Kubernetes Ingress
+- Static code analysis with SonarQube
+- Container vulnerability scanning with Trivy
 - Prometheus metrics collection
 - Grafana monitoring dashboards
-- Alertmanager notifications
+- Alertmanager alerting
+- Email notifications
 - Security integrated into CI/CD
 
 ---
 
-# 📁 Repository Structure
+## Project Evidence
+
+The screenshots throughout this README provide evidence of the actual implementation across AWS, GitLab, Docker, Kubernetes, SonarQube, Trivy, Prometheus, Grafana, and Alertmanager.
+
+**Click any screenshot to open the original full-resolution image.**
+
+---
+
+## Resume Version
+
+### End-to-End DevSecOps CI/CD Pipeline — AWS EKS
+
+- Built an end-to-end GitLab CI/CD pipeline automating application testing, SonarQube analysis, Docker image build and publishing, Trivy vulnerability scanning, and deployment to Amazon EKS.
+- Provisioned AWS infrastructure using Terraform and deployed a containerized application to Kubernetes.
+- Configured AWS Load Balancer Controller and Kubernetes Ingress to expose the application through an AWS Application Load Balancer.
+- Implemented Prometheus and Grafana monitoring with Alertmanager-based alerting and email notifications.
+- Integrated automated code-quality and container-security checks into the CI/CD workflow.
+- Implemented Kubernetes and application validation to verify successful deployment and service availability.
+
+---
+
+## Repository Documentation
 
 ```text
-end_to_end_devsecops_project/
+docs/
+├── architecture/
+│   ├── Project_Architecture.png
+│   ├── Project_Architecture_overview.jpg
+│   └── Project_repo.png
 │
-├── K8s/
-├── docs/
-│   ├── architecture/
-│   │   ├── architecture.png
-│   │   ├── Project_Architecture_overview.jpg
-│   │   └── repository_structure.png
-│   │
-│   └── screenshots/
-│       ├── aws/
-│       ├── ci-cd/
-│       ├── docker/
-│       ├── kubernetes/
-│       ├── monitoring/
-│       └── security/
-│
-├── public/
-├── src/
-├── terraform/
-├── test/
-├── Dockerfile
-├── .dockerignor
-├── .gitignore
-├── package.json
-├── package-lock.json
-└── README.md
+└── screenshots/
+    ├── aws/
+    │   ├── actual application1.png
+    │   ├── AWS Application Load Balancer Successfully Provisioned Through Kubernetes Ingress1.png
+    │   ├── ec2_instances1.png
+    │   ├── EKS Application Pods Running Successfully1.png
+    │   ├── eks_cluster1.png
+    │   ├── Kubernetes Service Successfully Created1.png
+    │   └── load_balancer1.png
+    │
+    ├── ci-cd/
+    │   ├── alertmanager.png
+    │   ├── Alertmanager_alert.png
+    │   ├── all_stages_Passed.png
+    │   ├── Gmail_alert.png
+    │   ├── Grafana_dashboard1.png
+    │   ├── Grafana_firing_alert1.png
+    │   ├── Prometheus_alert1.png
+    │   ├── Prometheus_Grafana_connection1.png
+    │   ├── Prometheus_query1.png
+    │   └── Prometheus_svc_monitoring1.png
+    │
+    ├── docker/
+    │   ├── added_test1.png
+    │   ├── dockerfile_configuration1.png
+    │   ├── dockerhub_image1.png
+    │   ├── docker_image1.png
+    │   └── test_pass1.png
+    │
+    ├── kubernetes/
+    │   ├── 01_terraform_apply_complete.png
+    │   ├── 02_kubernetes_nodes_ready.png
+    │   ├── 03_kubernetes_cluster_info.png
+    │   ├── 04_kubernetes_system_pods.png
+    │   ├── 07_load_balancer_controller_iam_policy.png
+    │   ├── 08_lb_controller_iam_serviceaccount.png
+    │   ├── 09_lb_controller_serviceaccount.png
+    │   └── eks_cluster1.png
+    │
+    ├── monitoring/
+    │   ├── 10_prometheus_stack_installed1.png
+    │   └── 11_observability_pods_running1.png
+    │
+    └── security/
+        ├── SonarQube/
+        │   ├── gitlab_pipeline_sucess1.png
+        │   ├── sonarqube_analysis_history.png -1 .png
+        │   ├── sonarqube_project_overview1 .png
+        │   ├── sonarqube_quality_gate1.png
+        │   └── sonarqube_security_issues.png -1.png
+        │
+        └── Trivy_image_scan/
+            ├── Screenshot1.png
+            └── trivy_image_scan_added1.png
 ```
 
 ---
 
-# 🎯 Key Portfolio Highlights
+## Project Status
 
-This project demonstrates practical experience across the DevOps and DevSecOps lifecycle:
-
-**Source Code → CI/CD → Testing → Security → Containers → Kubernetes → AWS → Monitoring**
-
-The project combines infrastructure automation, application delivery, security scanning, Kubernetes orchestration, and observability into one end-to-end workflow.
-
----
-
-# 📌 Resume Version
-
-### End-to-End DevSecOps CI/CD Pipeline — AWS EKS
-
-- Built an end-to-end GitLab CI/CD pipeline automating unit testing, SonarQube code analysis, Docker image build and push, Trivy vulnerability scanning, and deployment to Amazon EKS.
-- Provisioned AWS infrastructure using Terraform and deployed a containerized Node.js application to Kubernetes.
-- Implemented Prometheus and Grafana monitoring with Alertmanager-based alerting and email notifications.
-- Integrated automated code-quality and container-security checks into the CI/CD workflow.
-- Implemented application health and metrics endpoints to support Kubernetes validation and Prometheus-based observability.
-
----
-
-# 🚧 Future Improvements
-
-Potential enhancements include:
-
-1. Demonstrate a Trivy vulnerability that intentionally blocks deployment.
-2. Demonstrate a SonarQube Quality Gate failure that blocks the pipeline.
-3. Add automated deployment rollback handling.
-4. Add and demonstrate Kubernetes readiness and liveness probes.
-5. Implement secure secrets management.
-6. Add Terraform validation and plan checks to CI/CD.
-7. Add infrastructure security scanning.
-8. Add a concise reproduction guide for rebuilding the environment.
+This project demonstrates an end-to-end DevSecOps workflow integrating application testing, CI/CD automation, infrastructure as code, containerization, security scanning, Kubernetes deployment, AWS load balancing, monitoring, and alerting on Amazon EKS.
